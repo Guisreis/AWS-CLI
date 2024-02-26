@@ -3,7 +3,7 @@
 region='us-east-1'
 
 # Insira manualmente os IDs dos volumes separados por espaço
-volume_ids_array=( "vol-0a0229787f661ee69" "vol-026cbe1d8a78875e4" "vol-06bc533adfec8268e" "vol-08e808e7ba4ed3c6d" "vol-014d5e214817d2a56" )
+volume_ids_array=( "vol-0515110231456" "vol-084184152616" "vol-015162629645810" "vol-051651dwa6515" "vol-055561a561616d" )
 
 # AIterar sobre os IDs dos volumes fornecidos
 for volume_id in "${volume_ids_array[@]}"; do
