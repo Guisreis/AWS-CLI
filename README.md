@@ -1,4 +1,6 @@
-This repository contains scripts related to the AWS CLI.
+This repository contains scripts and code related to AWS.
 
-![image](https://github.com/Guisreis/AWS-CLI/assets/86111129/2ad9c5ca-7d54-4af5-b498-97f2e446d5c9)
+![image](https://github.com/user-attachments/assets/00111f33-97bb-437b-a25e-bb2f1229f0ff)
+
+
 
