@@ -1,5 +1,6 @@
 This repository contains scripts and code related to AWS.
 
-![image](https://github.com/user-attachments/assets/8e42612d-bf20-444b-b929-6186e0261b0c)
+![image](https://github.com/user-attachments/assets/00111f33-97bb-437b-a25e-bb2f1229f0ff)
+
 
 
