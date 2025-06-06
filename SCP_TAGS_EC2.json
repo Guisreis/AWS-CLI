@@ -1,0 +1,132 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyWithoutNameTagForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Name": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutGitRepoTagForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/GitRepo": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutHostNameTagForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/HostName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutScheduleCronTagForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ScheduleCron": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutServiceTagForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Service": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutBackupTagOrValueForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Backup": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutEnvironmentTagOrValueForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Environment": [
+            "Production",
+            "Development",
+            "Testing"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutProvisionedTagOrValueForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Provisioned": [
+            "Terraform",
+            "Cloudformation",
+            "Manual"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutMonitoringTagOrValueForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Monitoring": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutDRTagOrValueForEC2",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/DR": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    }
+  ]
+}

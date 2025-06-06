@@ -1,0 +1,132 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyWithoutNameTagForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Name": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutGitRepoTagForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/GitRepo": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutHostNameTagForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/HostName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutScheduleCronTagForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ScheduleCron": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutServiceTagForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Service": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutBackupTagOrValueForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Backup": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutEnvironmentTagOrValueForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Environment": [
+            "Production",
+            "Development",
+            "Testing"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutProvisionedTagOrValueForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Provisioned": [
+            "Terraform",
+            "Cloudformation",
+            "Manual"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutMonitoringTagOrValueForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Monitoring": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutDRTagOrValueForASG",
+      "Effect": "Deny",
+      "Action": "autoscaling:CreateAutoScalingGroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/DR": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    }
+  ]
+}

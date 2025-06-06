@@ -1,0 +1,132 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyWithoutNameTagForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Name": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutGitRepoTagForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/GitRepo": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutHostNameTagForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/HostName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutScheduleCronTagForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ScheduleCron": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutServiceTagForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Service": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutBackupTagOrValueForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Backup": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutEnvironmentTagOrValueForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Environment": [
+            "Production",
+            "Development",
+            "Testing"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutProvisionedTagOrValueForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Provisioned": [
+            "Terraform",
+            "Cloudformation",
+            "Manual"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutMonitoringTagOrValueForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/Monitoring": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "DenyWithoutDRTagOrValueForEKS",
+      "Effect": "Deny",
+      "Action": "eks:CreateNodegroup",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:RequestTag/DR": [
+            "Y",
+            "N"
+          ]
+        }
+      }
+    }
+  ]
+}
